@@ -1,0 +1,58 @@
+public class Test{
+public static void main (String [] args) {
+String expectederrormsg =” Sorry, there was an error submitting the form. Please try again.”
+String actualerrormsg;
+System.setProperty (“Webdriver.chrome.driver”, “D:\\driver\\chromedriver.exe);
+Webdriver driver = new ChromeDriver();
+driver.manage().window().maximize();
+driver.get(“https://www.tendable.com”);
+
+Actions act = new Actions(driver);
+WebElement W1= driver.findElement(By.xpath(“//a[text()='Our Story ']));
+WebElement W2= driver.findElement(By.xpath(“//a[text()='Our Story ']));
+WebElement W3= driver.findElement(By.xpath(“//a[text()='Our Story ']));
+act.moveToElement(W1).build().perform();
+//Verify if the button is present
+boolean isElementDisplayed = driver.findElement(By.xpath(“//a[@class='button ' and text()='Request A Demo']”).isDisplayed();
+Assertions.assertTrue(isElementDisplayed, “Request A Demo button is not present”);
+//Verify if the button is active
+boolean isElementEnabled = driver.findElement(By.xpath(“//a[@class='button ' and text()='Request A Demo']”).isEnabled();
+Assertions.assertTrue(isElementEnabled, “Request A Demo button is not active”);
+
+act.moveToElement(W2).build().perform();
+//Verify if the button is present
+boolean isElementDisplayed = driver.findElement(By.xpath(“//a[@class='button ' and text()='Request A Demo']”).isDisplayed();
+Assertions.assertTrue(isElementDisplayed, “Request A Demo button is not present”);
+//Verify if the button is active
+boolean isElementEnabled = driver.findElement(By.xpath(“//a[@class='button ' and text()='Request A Demo']”).isEnabled();
+Assertions.assertTrue(isElementEnabled, “Request A Demo button is not active”);
+
+act.moveToElement(W3).build().perform();
+//Verify if the button is present
+boolean isElementDisplayed = driver.findElement(By.xpath(“//a[@class='button ' and text()='Request A Demo']”).isDisplayed();
+Assertions.assertTrue(isElementDisplayed, “Request A Demo button is not present”);
+//Verify if the button is active
+boolean isElementEnabled = driver.findElement(By.xpath(“//a[@class='button ' and text()='Request A Demo']”).isEnabled();
+Assertions.assertTrue(isElementEnabled, “Request A Demo button is not active”);
+
+//Navigate to Contact Us
+driver.findElement(By.xpath(“//a[text()='Contact Us']”).click();
+driver.manage().timeouts().implicitlyWait(05, TimeUnit.SECONDS);
+driver.findElement(By.xpath(“//input[@name='fullName'])[1])”)).sendkeys(“Supriya Kundale”);
+driver.findElement(By.xpath(“//input[@name= organisationName])[1])”)).sendkeys(“HCL”);
+driver.findElement(By.xpath(“//input[@name= cellPhone])[1])”)).sendkeys(“123456789”);
+driver.findElement(By.xpath(“//input[@name=' email'])[1])”)).sendkeys(“abc@gmail.com”);
+Select dropdown = new Select(driver.findElement(By.xpath((//select[@id='form-input-jobRole'])[1]));
+dropdown.selectByVisibleText("Other");
+driver.findElement(By.xpath(“(//input[@name='consentAgreed'])[1]”)).click();
+driver.findElement(By.xpath(“(//button[text()='Submit'])[1]”)).click();
+actualerrormsg= driver.findElement(By.xpath(“//div[@class='ff-form-errors']”)).getText();
+if(Assert.assertequals(actualerrormsg, expectederrormsg)){
+System.put.println(“Test Passed”);
+}
+else{
+System.put.println(“Test Failed”);
+}
+driver.quit();
+}
+}
